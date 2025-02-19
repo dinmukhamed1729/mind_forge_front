@@ -10,7 +10,7 @@ const api = axios.create({
 api.interceptors.request.use(
     config => {
         const token = localStorage.getItem('token');
-        if (token) {
+        if (token && token !== 'undefined') {
             config.headers.Authorization = `Bearer ${token}`;
         }
         console.log("Send request use token", token);
@@ -24,7 +24,7 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
     response => {
-        if (response && response.status === 201) {
+        if (response && response.status === 201 && response.data.token) {
             localStorage.setItem('token', response.data.token);
             console.log("token saved ", response.data.token);
         }

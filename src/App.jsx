@@ -4,7 +4,8 @@ import Restration from "./page/Restration.jsx";
 import Login from "./page/Login.jsx";
 import {Home} from "./page/Home.jsx";
 import {CreateTask} from "./page/CreateTask.jsx";
-
+import {TaskPage} from "./page/TaskPage.jsx";
+import {TaskView} from "./page/TaskView.jsx";
 
 function App() {
     return (
@@ -15,6 +16,8 @@ function App() {
                 <Route path="/registration" element={<Restration/>}/>
                 <Route path="/create-task" element={<CreateTask/>}/>
                 <Route path="/login" element={<Login/>}/>
+                <Route path="/task" element={<TaskPage/>}/>
+                <Route path="/task/:title" element={<TaskView/>}/>
             </Routes>
         </Router>
     )

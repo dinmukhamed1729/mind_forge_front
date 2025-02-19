@@ -43,7 +43,7 @@ export const CreateTask = () => {
         try {
             const response = await api.post('/task', body);
 
-            if (response.ok) {
+            if (response.status === 201) {
                 alert('Task successfully created!');
                 setFormData({
                     title: '',
@@ -57,11 +57,12 @@ export const CreateTask = () => {
                     tags: '',
                 });
             } else {
-                const error = await response.json();
+                const error = response.data;
                 alert(`Error: ${error.message || 'Failed to create task'}`);
             }
         } catch (error) {
-            alert(`Error: ${error.message}`);
+            const errorMessage = error.response?.data?.message || error.message || 'Failed to create task';
+            alert(`Error: ${errorMessage}`);
         }
     };
 

@@ -24,6 +24,16 @@ export const Home = () => {
                     >
                         Create Task
                     </Button>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        sx={{textTransform: 'none'}}
+                        onClick={() => {
+                            navigate('/task');
+                        }}
+                    >
+                        Tasks
+                    </Button>
                 </header>
 
                 <section className="mb-8">

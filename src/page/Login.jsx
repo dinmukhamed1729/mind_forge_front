@@ -15,7 +15,7 @@ function Login() {
         try {
 
             const response = await api.post('/login', formData)
-            if (response.status === 200) {
+            if (response.status === 201) {
                 navigate('/home')
             } else {
                 console.error(response);
