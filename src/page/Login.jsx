@@ -6,7 +6,6 @@ import api from "../api.js";
 function Login() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        username: "",
         email: "",
         password: ""
     })
@@ -14,7 +13,7 @@ function Login() {
         e.preventDefault();
         try {
 
-            const response = await api.post('/login', formData)
+            const response = await api.post('users/login/', formData)
             if (response.status === 201) {
                 navigate('/home')
             } else {
@@ -51,12 +50,12 @@ function Login() {
                         margin="normal"
                         required
                         fullWidth
-                        id="username"
-                        label="Username"
-                        name="username"
-                        autoComplete="username"
+                        id="email"
+                        label="Email"
+                        name="email"
+                        autoComplete="email"
                         autoFocus
-                        value={formData.username}
+                        value={formData.email}
                         onChange={handleChange}
                     />
 

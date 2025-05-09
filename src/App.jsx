@@ -17,7 +17,7 @@ function App() {
                 <Route path="/create-task" element={<CreateTask/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/task" element={<TaskPage/>}/>
-                <Route path="/task/:title" element={<TaskView/>}/>
+                <Route path="task/tasks/:id" element={<TaskView/>}/>
             </Routes>
         </Router>
     )

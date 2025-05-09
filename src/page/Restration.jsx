@@ -25,7 +25,7 @@ function Registration() {
             return;
         }
         try {
-            const response = await api.post('/registration', formData)
+            const response = await api.post('users/register/', formData)
             if (response.status === 200) {
                 navigate('/login');
             } else {

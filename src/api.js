@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'http://localhost:8080/api/v1',
+    baseURL: 'http://localhost:8000/api/v1/',
     headers: {
         'Content-Type': 'application/json',
     }
@@ -24,9 +24,10 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
     response => {
-        if (response && response.status === 201 && response.data.token) {
-            localStorage.setItem('token', response.data.token);
-            console.log("token saved ", response.data.token);
+
+        if (response && response.status === 200 && response.data.access) {
+            localStorage.setItem('token', response.data.access);
+            console.log("token saved ", response.data.access);
         }
         return response;
     },
